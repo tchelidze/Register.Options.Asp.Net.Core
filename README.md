@@ -7,6 +7,7 @@ Automatic `IOptions` registration for ASP.NET Core 2
 
 `PM> Install-Package Register.Options.Asp.Net.Core`
 
+<hr/>
 
 Having following *appsettings* file, *IDEOptions* and *PersonOptions* classes.
 
