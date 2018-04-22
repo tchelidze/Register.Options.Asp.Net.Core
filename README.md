@@ -55,7 +55,21 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Or register one by one
+Or specify assemblies explicitly
+
+```c#
+
+public void ConfigureServices(IServiceCollection services)
+{
+    services.ConfigureOptionsFromAssemblies(configuration, new List<Assembly>()
+    {
+        typeof(IDEOptions).Assembly,
+        typeof(PersonOptions).Assembly               
+    });
+}
+```
+
+Or register options one by one
 
 ```c#
 public void ConfigureServices(IServiceCollection services)
