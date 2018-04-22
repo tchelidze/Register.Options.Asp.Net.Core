@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Register.Options.Asp.Net.Core.Register.Options.Asp.Net.Core;
+using RegisterOptionsDemo.Options;
 
 namespace RegisterOptionsDemo
 {
@@ -18,29 +17,20 @@ namespace RegisterOptionsDemo
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var a = Configuration.GetChildren().Select(it => it.Key);
-            services.AddMvc();
+            services.ConfigureOptionsFromEntyAssembly(Configuration);
+
+            //You can specify specific assembly to search options classes in.
+            //   services.ConfigureOptionsFromAssembly(Configuration, typeof(int).Assembly);
+
+            //Alternatively, you can register options one by one explicitly
+            //   services.ConfigureOption<AOptions>(Configuration);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseBrowserLink();
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-            }
-
-            app.UseStaticFiles();
-
-            app.UseMvc();
+            var aoptions = app.ApplicationServices.GetRequiredService<IOptions<AOptions>>();
         }
     }
 }
