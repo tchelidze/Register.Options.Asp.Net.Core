@@ -30,7 +30,7 @@ namespace RegisterOptionsDemo
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            var aoptions = app.ApplicationServices.GetRequiredService<IOptions<AOptions>>();
+            var aoptions = app.ApplicationServices.GetRequiredService<IOptions<PersonOptions>>();
         }
     }
 }
