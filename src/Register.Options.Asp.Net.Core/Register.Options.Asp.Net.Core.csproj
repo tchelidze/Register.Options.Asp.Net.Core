@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Description>Automatic IOptions registration for ASP.NET Core 2</Description>
+    <PackageProjectUrl>https://github.com/tchelidze/Register.Options.Asp.Net.Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tchelidze/Register.Options.Asp.Net.Core</RepositoryUrl>
+    <RepositoryType>OpenSource</RepositoryType>
+    <PackageTags>asp-net-core</PackageTags>
+    <Authors>Bitchiko Tchelidze</Authors>
+    <Company>Tchelidze</Company>
   </PropertyGroup>
 
   <ItemGroup>

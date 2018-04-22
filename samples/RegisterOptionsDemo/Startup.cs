@@ -22,10 +22,10 @@ namespace RegisterOptionsDemo
             services.ConfigureOptionsFromEntyAssembly(Configuration);
 
             //You can specify specific assembly to search options classes in.
-            //   services.ConfigureOptionsFromAssembly(Configuration, typeof(int).Assembly);
+            //    services.ConfigureOptionsFromAssembly(Configuration, typeof(int).Assembly);
 
             //Alternatively, you can register options one by one explicitly
-            //   services.ConfigureOption<AOptions>(Configuration);
+            //    services.ConfigureOption<PersonOptions>(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
